@@ -21,10 +21,10 @@ GPIO.output(output_2, GPIO.HIGH)
 userInputPort = ''
 userInputState = ''
 
-dict ports = {'1': output_1, '2': output_2}
-dict states = {'on': GPIO.LOW, 'off': GPIO.HIGH}
+ports = {'1': output_1, '2': output_2}
+states = {'on': GPIO.LOW, 'off': GPIO.HIGH}
 
-while (true):
+while (True):
     userInputPort = input('Which port? 1 or 2 (or quit): ')
     userInputState = input('What state (ON / OFF)? (or quit): ')
 
