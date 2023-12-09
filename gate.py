@@ -4,7 +4,7 @@
 import RPi.GPIO as GPIO
 import datetime
 
-pulseLength = datetime.timedelta(seconds = 5)
+pulseLength = datetime.timedelta(seconds = 3)
 
 # Pin Definitons (board pin-numbering scheme):
 drivewayGatePin = 3
