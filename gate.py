@@ -6,11 +6,11 @@ import datetime
 
 pulseLength = datetime.timedelta(seconds = 5)
 
-# Pin Definitons (Broadcom pin-numbering scheme):
+# Pin Definitons (board pin-numbering scheme):
 drivewayGatePin = 3
 
 # Pin Setup:
-GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
+GPIO.setmode(GPIO.BOARD) 
 GPIO.setup(drivewayGatePin, GPIO.OUT) 
 
 # Initial state
