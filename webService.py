@@ -14,7 +14,7 @@ class TriggerCheck(BaseModel):
 class QueryRun(BaseModel):
     limit: Optional[int]
 
-IFTTT_SERVICE_KEY = 'Paste your service key here (find yours at https://ift.tt/your-service-key)'
+IFTTT_SERVICE_KEY = 'h7J_a3ajA7tLY09hCEeWgpyHuK28XxtGdEhVkR_GbtmpjqoWDsa_R2z1tz3O5q-K'
 
 # Check the validity of the IFTTT-Service-Key on each incoming request before passing it to the path operation
 @app.middleware("http")
