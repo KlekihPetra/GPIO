@@ -16,16 +16,19 @@ GPIO.setup(drivewayGatePin, GPIO.OUT)
 # Initial state
 GPIO.output(drivewayGatePin, GPIO.HIGH)
 
-# Open gate (5s pulse)
-timerStart = datetime.datetime.now()
 
-print('Pulse start')
-GPIO.output(drivewayGatePin, GPIO.LOW)
+def openGate():
 
-while (datetime.datetime.now() < timerStart + pulseLength):
-    continue
+    # Open gate (5s pulse)
+    timerStart = datetime.datetime.now()
 
-print('Pulse end')
-GPIO.output(drivewayGatePin, GPIO.HIGH)
+    print('Pulse start')
+    GPIO.output(drivewayGatePin, GPIO.LOW)
+
+    while (datetime.datetime.now() < timerStart + pulseLength):
+        continue
+
+    print('Pulse end')
+    GPIO.output(drivewayGatePin, GPIO.HIGH)
 
 

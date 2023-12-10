@@ -6,6 +6,8 @@ from typing import Optional
 from datetime import datetime, timezone
 import uuid
 
+import gate
+
 app = FastAPI()
 
 class TriggerCheck(BaseModel):
@@ -57,16 +59,19 @@ def test_setup():
 # Trigger endpoint
 @app.post('/ifttt/v1/triggers/new_thing_created', status_code=status.HTTP_200_OK)
 def new_thing_created(trigger_check: TriggerCheck):
-  data = []
-  numOfItems = trigger_check.limit
-  if numOfItems is None:
-    numOfItems = 3
-  if numOfItems >= 1:
-    i = 0
+
+    data = []
+    numOfItems = trigger_check.limit
+    if numOfItems is None:
+        numOfItems = 3
+    if numOfItems >= 1:
+        i = 0
     while i < numOfItems:
-      i += 1
-      data.append(generate_event())
-  return {'data': data}
+        i += 1
+        data.append(generate_event())
+    gate.openGate()
+    
+    return {'data': data}
 
 # Query endpoint
 @app.post('/ifttt/v1/queries/list_all_things', status_code=status.HTTP_200_OK)
