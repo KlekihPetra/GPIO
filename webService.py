@@ -26,6 +26,7 @@ async def check_service_key(request: Request, call_next):
       content = {"errors": [{"message": "Unauthorized"}]}
       return JSONResponse(content = content, status_code = status.HTTP_401_UNAUTHORIZED)
     response = await call_next(request)
+    print(headers)
     return response
 
 # Generate a mock event used in trigger and query responses
