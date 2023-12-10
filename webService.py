@@ -60,7 +60,6 @@ def test_setup():
 # Trigger endpoint
 @app.post('/ifttt/v1/triggers/new_thing_created', status_code=status.HTTP_200_OK)
 def new_thing_created(trigger_check: TriggerCheck):
-
     data = []
     numOfItems = trigger_check.limit
     if numOfItems is None:
@@ -70,7 +69,6 @@ def new_thing_created(trigger_check: TriggerCheck):
     while i < numOfItems:
         i += 1
         data.append(generate_event())
-    gate.openGate()
     
     return {'data': data}
 
@@ -97,5 +95,6 @@ def list_all_things(query_run: QueryRun):
 # Action endpoint
 @app.post('/ifttt/v1/actions/create_new_thing', status_code=status.HTTP_200_OK)
 def create_new_thing():
-  id = str(uuid.uuid4())
-  return {'data': [{'id': id}]}
+    id = str(uuid.uuid4())
+    gate.openGate()
+    return {'data': [{'id': id}]}
